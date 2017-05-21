@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forms</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="padded-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<form>
+					<div class="form-group">
+						<input class="form-control" type="text" name="fname">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script data-main="js/config" src="js/require.js"></script>
+	<script>
+		require(['config'], function(){
+			require(['jquery','common']);
+		})
+	</script>
+</body>
+</html>
