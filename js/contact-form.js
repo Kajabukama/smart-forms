@@ -1,3 +1,7 @@
 define(['jquery'], function(){
-	alert('working ...');
+	
+	$('#contactForm').on('submit', function(){
+		var fname = $('#fname').val()
+		alert('submitted name : '+ fname);
+	})
 })
