@@ -12,40 +12,44 @@ define(['jquery'], function() {
     var errors = [];
     var data = {};
 
-    var output = $('.errors');
-
+    var output = "";
 
 
     $('#contact').on('submit', function(ev) {
 
         var email = $('#email').val();
         var fullname = $('#fullname').val();
-        var mobile = $('#mobile').val();
+        var subject = $('#subject').val();
         var message = $('#message').val();
 
         if (!validateEmail(email)) {
             errors.push('Email is not valid')
         }
 
-        if (!check(fullname) && !check(message) && !check(mobile) && !check(email)) {
+        if (!check(fullname) && !check(message) && !check(subject) && !check(email)) {
             errors.push('You must provide a fullname');
             errors.push('You must provide a message');
-            errors.push('You must provide a mobile phone number');
+            errors.push('You must provide a subject to the messager');
             errors.push('Email field is empty')
         }
 
-        data = { 'email': email, 'fullname': fullname, 'mobile': mobile, 'message': message }
+        data = { 'email': email, 'fullname': fullname, 'subject': subject, 'message': message }
 
         if (errors.length == 0) {
+
             console.log('no errors');
             console.log(data);
+
         } else {
-            console.log(errors);
+            output += "<ul class='list-group red'>";
+            for (var i = 0; i < errors.length; i++) {
+                output += "<li class='list-group-item'>" + errors[i] + "</li>"
+            }
+            output += "</ul>";
+            $('.errors').append(output);
         }
 
-
-
-        ev.preventDefault()
+        ev.preventDefault();
     });
 
 })
