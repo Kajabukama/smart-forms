@@ -1,3 +1,3 @@
-$(document).ready( function(){
+define(['jquery'], function(){
 	alert('working ...');
 })
